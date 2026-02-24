@@ -1,17 +1,16 @@
 import React from "react";
-import Navbar from "./Navbar";
+import { useSelector } from "react-redux";
 
-const Home = () => {
+function Home() {
+  const movies = useSelector((state) => state.movie.movies);
+
+  console.log("Movies from Redux:", movies);
+
   return (
-    <div className="min-h-screen bg-gray-900">
-      <Navbar />
-      <div className="p-8 text-white">
-        <h2 className="text-3xl font-bold mb-4">
-        Dashboard
-        </h2>
-      </div>
+    <div>
+      <h1>Home Page</h1>
     </div>
   );
-};
+}
 
 export default Home;

@@ -1,18 +1,34 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart } from "../features/cartSlice";
 
-function Cart(){
-    const cartItems = useSelector((state)=>state.cart.cart)
-    return (
-        <div>
-            <h1>Cart</h1>
-            {cartItems.map((item)=>
-            <div key = {item.id}>
-                <h3>{item.name}</h3>
-                <h3>{item.price}</h3>
-                </div>
-            )}
+function Cart() {
+  const { items, totalAmount, totalQuantity } = useSelector(
+    (state) => state.cart
+  );
+
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h1>Cart 🛒</h1>
+
+      {items.map((item) => (
+        <div key={item.id}>
+          <h3>{item.title}</h3>
+          <p>Quantity: {item.quantity}</p>
+          <p>Price: ₹{item.price}</p>
+          <button onClick={() => dispatch(removeFromCart(item.id))}>
+            Remove
+          </button>
         </div>
-    )
+      ))}
+
+      <hr />
+      <h2>Total Items: {totalQuantity}</h2>
+      <h2>Total Amount: ₹{totalAmount}</h2>
+    </div>
+  );
 }
+
 export default Cart;
