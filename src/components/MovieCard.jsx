@@ -7,6 +7,7 @@ function MovieCard({ movie }) {
 
   return (
     <div style={{ border: "1px solid gray", padding: "10px", margin: "10px" }}>
+      <img src={movie.image} alt={movie.title} />
       <h3>{movie.title}</h3>
       <p>Price: ₹{movie.price}</p>
 
