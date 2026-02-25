@@ -5,14 +5,14 @@ import { loginUser } from "../features/authSlice";
 
 function Login() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();   // 👈 add this
+  const navigate = useNavigate(); 
 
   const { loading, error } = useSelector((state) => state.auth);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // 🔥 PLACE IT RIGHT HERE
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -21,20 +21,26 @@ function Login() {
     );
 
     if (loginUser.fulfilled.match(result)) {
-      navigate("/movies");   // 🔥 redirect after success
+      navigate("/movies");   
     }
   };
 
-  return (
-    <div>
-      <h2>Login</h2>
+return (
+  <div className="min-h-screen flex items-center justify-center bg-gray-900">
+    
+    <div className="bg-gray-800 p-8 rounded-xl shadow-lg w-80">
+      <h2 className="text-2xl font-bold text-white mb-6 text-center">
+        Login
+      </h2>
 
-      <form onSubmit={handleSubmit}>  {/* 👈 important */}
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="p-2 rounded bg-gray-700 text-white outline-none focus:ring-2 focus:ring-blue-500"
         />
 
         <input
@@ -42,16 +48,26 @@ function Login() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="p-2 rounded bg-gray-700 text-white outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        <button type="submit">
+        <button
+          type="submit"
+          className="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition duration-300"
+        >
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>
 
-      {error && <p>{error}</p>}
+      {error && (
+        <p className="text-red-400 text-sm mt-4 text-center">
+          {error}
+        </p>
+      )}
     </div>
-  );
+
+  </div>
+);
 }
 
 export default Login;

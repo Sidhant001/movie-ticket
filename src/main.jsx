@@ -7,7 +7,7 @@ import App from "./App";
 import Login from "./pages/Login";
 import Movies from "./pages/Movies";
 import Cart from "./pages/Cart";
-
+import "./index.css";
 const router = createBrowserRouter([
   {
     path: "/",

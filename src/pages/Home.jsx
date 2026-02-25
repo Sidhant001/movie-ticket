@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 function Home() {
-  const movies = useSelector((state) => state.movie.movies);
+  const movies = useSelector((state) => state.movies);
 
   console.log("Movies from Redux:", movies);
 
