@@ -9,7 +9,7 @@ import Movies from "./pages/Movies";
 import Cart from "./pages/Cart";
 import "./index.css";
 import ProtectedRoute from "./components/ProtectedRoute";
-
+import Checkout from "./pages/Checkout";
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/movies", element: <Movies /> },
       { path: "/cart", element: <Cart /> },
+      { path: "/checkout", element: <Checkout /> },
     ],
   },
 ]);

@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "../features/cartSlice";
-
+import {useNavigate} from "react-router-dom"
 function Cart() {
   const dispatch = useDispatch();
   const { items, totalAmount } = useSelector((state) => state.cart);
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6">
@@ -33,7 +34,9 @@ function Cart() {
           <h3 className=" mt-6 text-xl text-white">
             Total: ₹{totalAmount}
           </h3>
-          <button className="mt-5 bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">
+          <button
+          onClick = {() => navigate("/checkout")} 
+          className="mt-5 bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">
             Checkout
             </button>
           
