@@ -26,10 +26,10 @@ function Login() {
   };
 
 return (
-  <div className="min-h-screen flex items-center justify-center bg-gray-900">
+  <div className="min-h-screen flex items-center justify-center ">
     
-    <div className="bg-gray-800 p-8 rounded-xl shadow-lg w-80">
-      <h2 className="text-2xl font-bold text-white mb-6 text-center">
+    <div className="bg-gray-300 p-8 rounded-xl shadow-lg w-80">
+      <h2 className="text-2xl font-bold text-gray-700 mb-6 text-center">
         Login
       </h2>
 
@@ -40,7 +40,7 @@ return (
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="p-2 rounded bg-gray-700 text-white outline-none focus:ring-2 focus:ring-blue-500"
+          className="p-2 rounded bg-gray-500 text-white outline-none focus:ring-2 focus:ring-blue-500"
         />
 
         <input
@@ -48,7 +48,7 @@ return (
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="p-2 rounded bg-gray-700 text-white outline-none focus:ring-2 focus:ring-blue-500"
+          className="p-2 rounded bg-gray-500 text-white outline-none focus:ring-2 focus:ring-blue-500"
         />
 
         <button
