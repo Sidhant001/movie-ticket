@@ -39,12 +39,14 @@ const moviesSlice = createSlice({
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.loading = false;
 
-        state.movies = action.payload.map((show) => ({
-          id: show.id,
-          title: show.name,
-          price: Math.floor(Math.random() * 300) + 100,
-          image: show.image?.medium,
-        }));
+     state.movies = action.payload.map((show) => ({
+      id: show.id,
+       title: show.name,
+      price: Math.floor(Math.random() * 300) + 100,
+      image: show.image?.medium,
+      genres: show.genres,
+      rating: show.rating?.average,
+     }));
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.loading = false;
