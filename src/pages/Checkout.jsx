@@ -36,7 +36,7 @@ function Checkout(){
     }
     if (success){
         return(
-            <div className = "min-h-screen flex items-center justify-center text-white bg-gray-900">
+            <div className = "min-h-screen flex items-center justify-center text-black dark:text-white bg-gray-100 dark:bg-gray-900">
                 <h2 className ="text-2xl font-bold">
                     Booking Successfull .......
                 </h2>
@@ -44,10 +44,11 @@ function Checkout(){
         )
     }
       return (
-    <div className="min-h-screen bg-gray-900 text-white p-6 grid md:grid-cols-2 gap-8">
+
+    <div className="min-h-screen bg-gray-400 dark:bg-gray-700 text-black dark:text-white p-6 grid md:grid-cols-2 gap-8">
 
       <div>
-        <h2 className="text-2xl font-bold mb-6">Checkout</h2>
+        <h2 className="text-2xl text-black dark:text-white font-bold mb-6">Checkout</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -56,7 +57,7 @@ function Checkout(){
             placeholder="Full Name"
             required
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-800"
+            className="w-full text-black dark:text-white p-2 rounded bg-gray-100 dark:bg-gray-900"
           />
 
           <input
@@ -65,7 +66,7 @@ function Checkout(){
             placeholder="Email"
             required
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-800"
+            className="w-full text-black dark:text-white p-2 rounded bg-gray-100 dark:bg-gray-900"
           />
 
           <input
@@ -74,7 +75,7 @@ function Checkout(){
             placeholder="Phone Number"
             required
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-800"
+            className="w-full text-black dark:text-white p-2 rounded bg-gray-100 dark:bg-gray-900"
           />
 
           <input
@@ -83,13 +84,13 @@ function Checkout(){
             min="1"
             value={form.seats}
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-800"
+            className="w-full text-black dark:text-white p-2 rounded bg-gray-100 dark:bg-gray-900"
           />
 
           <select
             name="payment"
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-800"
+            className="w-full text-black dark:text-white p-2 rounded bg-gray-100 dark:bg-gray-900"
           >
             <option>UPI</option>
             <option>Credit Card</option>
@@ -99,15 +100,15 @@ function Checkout(){
 
           <button
             type="submit"
-            className="w-full bg-blue-600 py-2 rounded hover:bg-blue-700"
+            className="w-full text-black dark:text-white bg-blue-600 py-2 rounded hover:bg-blue-700"
           >
             Confirm Booking
           </button>
         </form>
       </div>
 
-      <div className="bg-gray-800 p-6 rounded-lg">
-        <h3 className="text-xl font-bold mb-4">Booking Summary</h3>
+      <div className="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg text-black dark:text-white">
+        <h3 className="text-xl text-black dark:text-white font-bold mb-4">Booking Summary</h3>
 
         {items.map((item) => (
           <div key={item.id} className="flex justify-between mb-2">
@@ -116,13 +117,13 @@ function Checkout(){
           </div>
         ))}
 
-        <hr className="my-4 border-gray-600" />
+        <hr className="my-4 border-gray-600 text-black dark:text-white" />
 
-        <h4 className="text-lg font-bold">
+        <h4 className="text-lg font-bold text-black dark:text-white">
           Total: ₹{totalAmount}
         </h4>
       </div>
-
-    </div>
+     </div>
   );
-}export default Checkout;
+}
+export default Checkout;

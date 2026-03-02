@@ -8,7 +8,7 @@ function Cart() {
   const navigate = useNavigate()
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-black dark:text-white p-6">
       <h2 className="text-2xl font-bold mb-6">Your Cart 🛒</h2>
 
       {items.length === 0 ? (
@@ -18,7 +18,7 @@ function Cart() {
           {items.map((item) => (
             <div
               key={item.id}
-              className="flex justify-between items-center bg-gray-800 p-4 mb-3 rounded"
+              className="flex justify-between items-center text-black dark:text-white bg-gray-300 dark:bg-gray-700 p-4 mb-3 rounded"
             >
               <span>{item.name} (x{item.quantity})</span>
               <span>₹{item.price}</span>
@@ -31,7 +31,7 @@ function Cart() {
             </div>
           ))}
 
-          <h3 className=" mt-6 text-xl text-white">
+          <h3 className=" mt-6 text-xl text-black dark:text-white">
             Total: ₹{totalAmount}
           </h3>
           <button
@@ -43,6 +43,7 @@ function Cart() {
         </>
       )}
     </div>
+   
   );
 }
 
