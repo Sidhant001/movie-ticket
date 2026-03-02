@@ -15,3 +15,20 @@ export const saveCartToStorage = (cartState) => {
     console.error("Could not save cart", error);
   }
 };
+export const loadAuthFromStorage = () => {
+  try {
+    const data = localStorage.getItem("auth");
+    return data ? JSON.parse(data) : undefined;
+  } catch (error) {
+    console.error("Could not load auth", error);
+    return undefined;
+  }
+};
+
+export const saveAuthToStorage = (authState) => {
+  try {
+    localStorage.setItem("auth", JSON.stringify(authState));
+  } catch (error) {
+    console.error("Could not save auth", error);
+  }
+};

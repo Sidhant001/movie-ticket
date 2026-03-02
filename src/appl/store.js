@@ -2,19 +2,21 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../features/authSlice"
 import moviesReducer from "../features/movieSlice"
 import cartReducer from "../features/cartSlice"
-import { saveCartToStorage } from "../utils/localStorage";
-import { loadCartFromStorage } from "../utils/localStorage";
+import { loadCartFromStorage,saveCartToStorage,loadAuthFromStorage, saveAuthToStorage,} from "../utils/localStorage";
 const persistedCart = loadCartFromStorage();
+const preloadedState = {
+  cart: loadCartFromStorage(),
+  auth: loadAuthFromStorage(),
+};
 export const store = configureStore({
   reducer: {
     auth:authReducer,
     movie:moviesReducer,
     cart: cartReducer,
   }, 
-  preloadedState: {
-    cart: persistedCart,
-  },
+  preloadedState,
 });
 store.subscribe(() => {
   saveCartToStorage(store.getState().cart);
+  saveAuthToStorage(store.getState().auth);
 });
