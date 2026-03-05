@@ -11,9 +11,11 @@ function Movies() {
     (state) => state.movie
   );
 
-  useEffect(() => {
+useEffect(() => {
+  if (movies.length === 0) {
     dispatch(fetchMovies());
-  }, [dispatch]);
+  }
+}, [dispatch, movies.length]);
 
   if (loading) return <h2>Loading movies...</h2>;
   if (error) return <h2>{error}</h2>;

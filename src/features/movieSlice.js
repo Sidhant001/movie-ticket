@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-
 export const fetchMovies = createAsyncThunk(
   "movies/fetchMovies",
   async (_, { rejectWithValue }) => {
@@ -10,7 +9,6 @@ export const fetchMovies = createAsyncThunk(
         "https://api.tvmaze.com/shows"
       );
 
-     
       return response.data;
     } catch (error) {
       return rejectWithValue("Failed to fetch movies");
@@ -18,18 +16,25 @@ export const fetchMovies = createAsyncThunk(
   }
 );
 
-
 const initialState = {
   movies: [],
   loading: false,
   error: null,
 };
 
-
 const moviesSlice = createSlice({
   name: "movies",
   initialState,
-  reducers: {},
+
+  reducers: {
+    addMovie: (state, action) => {
+      state.movies.push({
+        id: Date.now(),
+        ...action.payload,
+      });
+    },
+  },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchMovies.pending, (state) => {
@@ -39,14 +44,14 @@ const moviesSlice = createSlice({
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.loading = false;
 
-     state.movies = action.payload.map((show) => ({
-      id: show.id,
-       title: show.name,
-      price: Math.floor(Math.random() * 300) + 100,
-      image: show.image?.medium,
-      genres: show.genres,
-      rating: show.rating?.average,
-     }));
+        state.movies = action.payload.map((show) => ({
+          id: show.id,
+          title: show.name,
+          price: Math.floor(Math.random() * 300) + 100,
+          image: show.image?.medium,
+          genres: show.genres,
+          rating: show.rating?.average,
+        }));
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.loading = false;
@@ -55,4 +60,5 @@ const moviesSlice = createSlice({
   },
 });
 
+export const { addMovie } = moviesSlice.actions;
 export default moviesSlice.reducer;

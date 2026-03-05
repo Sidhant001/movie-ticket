@@ -9,7 +9,7 @@ function MovieCard({ movie }) {
     <div className="border border-black bg-white rounded-lg p-3">
 
       <img
-        src={movie.image}
+        src={movie.image || movie.poster}
         alt={movie.title}
         className="h-70 object-cover rounded-md"
       />

@@ -28,15 +28,18 @@ const Navbar = () => {
           Movies
         </Link>
 
-        <Link to="/login" className="text-white hover:text-gray-200">
-          Logout
-        </Link>
-
         <Link to="/cart" className="text-white hover:text-gray-200">
           Cart 🛒 ({totalQuantity})
         </Link>
 
-        {/*Dark Mode */}
+        <Link to="/add-movie" className="text-white hover:text-gray-200">
+          Add Movies
+        </Link>
+
+        <Link to="/login" className="text-white hover:text-gray-200">
+          Logout
+        </Link>
+
         <button
           onClick={() => setDark(!dark)}
           className="px-3 py-1 rounded bg-white text-black dark:bg-gray-700 dark:text-white transition"
