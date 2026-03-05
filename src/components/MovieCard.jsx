@@ -6,7 +6,7 @@ function MovieCard({ movie }) {
   const dispatch = useDispatch();
 
   return (
-    <div className="border border-black bg-white rounded-lg p-3">
+    <div className="border border-black bg-white dark:bg-gray-600 rounded-lg p-3">
 
       <img
         src={movie.image || movie.poster}
@@ -15,11 +15,11 @@ function MovieCard({ movie }) {
       />
 
       <div className="p-3">
-        <h3 className="font-bold text-black text-sm mb-2 truncate">
+        <h3 className="font-bold text-black dark:text-white text-sm mb-2 truncate">
           {movie.title}
         </h3>
 
-        <p className="text-gray-700 text-sm">
+        <p className="text-gray-700 dark:text-gray-300 text-sm">
           Genre: {movie.genres?.join(", ") || "N/A"}
         </p>
 
@@ -27,7 +27,7 @@ function MovieCard({ movie }) {
           ⭐ Rating:  {movie.rating || "N/A"}
         </p>
 
-        <p className="text-black text-sm">
+        <p className="text-black dark:text-white text-sm">
           Price: ₹{movie.price || 300}
         </p>
 
