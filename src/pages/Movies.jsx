@@ -79,7 +79,7 @@ useEffect(() => {
   <select
     value={genre}
     onChange={(e) => setGenre(e.target.value)}
-    className="p-1 flex  my-2 rounded text-black dark:text-white border border-gray-700 dark:border-gray-300 "
+    className="p-1 flex  my-2 rounded text-black bg-white border border-gray-700 dark:border-gray-300 "
   >
     <option value="all">All Genres</option>
     <option value="Drama">Drama</option>
@@ -92,7 +92,7 @@ useEffect(() => {
   <select
     value={sort}
     onChange={(e) => setSort(e.target.value)}
-    className="p-1 flex  my-2 rounded text-black dark:text-white border border-gray-700 dark:border-gray-300"
+    className="p-1 flex  my-2 rounded bg-white text-black  border border-gray-700 dark:border-gray-300"
   >
     <option value="">Sort</option>
     <option value="ratingHigh">Rating High → Low</option>
