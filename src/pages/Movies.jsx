@@ -127,8 +127,8 @@ useEffect(() => {
     Next
   </button>
 
-</div>
-      </div>
+   </div>
+    </div>
     </div>
   );
 }

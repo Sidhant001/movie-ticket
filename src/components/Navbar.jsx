@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../features/authSlice";
 
 const Navbar = () => {
   const { totalQuantity } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+ 
+  const handleLogout = () => {
+  dispatch(logout());       
+  localStorage.removeItem("auth"); 
+  navigate("/login");      
+};
 
   const [dark, setDark] = useState(false);
 
@@ -36,9 +46,11 @@ const Navbar = () => {
           Add Movies
         </Link>
 
-        <Link to="/login" className="text-white hover:text-gray-200">
+        <button 
+         onClick = {handleLogout}
+        className="text-white hover:text-gray-200">
           Logout
-        </Link>
+        </button>
 
         <button
           onClick={() => setDark(!dark)}

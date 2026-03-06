@@ -5,8 +5,8 @@ import cartReducer from "../features/cartSlice"
 import { loadCartFromStorage,saveCartToStorage,loadAuthFromStorage, saveAuthToStorage,} from "../utils/localStorage";
 const persistedCart = loadCartFromStorage();
 const preloadedState = {
-  cart: loadCartFromStorage(),
-  auth: loadAuthFromStorage(),
+  cart: loadCartFromStorage() || undefined,
+  auth: loadAuthFromStorage() || undefined,
 };
 export const store = configureStore({
   reducer: {

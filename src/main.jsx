@@ -11,6 +11,7 @@ import "./index.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Checkout from "./pages/Checkout";
 import AddMovie from "./pages/AddMovie";
+
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -23,10 +24,14 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
-      { path: "/movies", element: <Movies /> },
-      { path: "/cart", element: <Cart /> },
-      { path: "/checkout", element: <Checkout /> },
-      {path: "/add-movie",element: <AddMovie /> },
+      { path: "/movies", element: 
+      <Movies /> },
+      { path: "/cart", element:
+        <Cart />},
+      { path: "/checkout",element:
+        <Checkout />},
+      {path: "/add-movie",element: 
+        <AddMovie />},
     ],
   },
 ]);

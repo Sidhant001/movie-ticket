@@ -19,6 +19,7 @@ function Login() {
     const result = await dispatch(
       loginUser({ username, password })
     );
+      console.log(result);
 
     if (loginUser.fulfilled.match(result)) {
       navigate("/movies");   
