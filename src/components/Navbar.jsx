@@ -85,19 +85,19 @@ const Navbar = () => {
               ✕
             </button>
 
-            <Link to="/movies" onClick={() => setMenuOpen(false)} className="text-black dark:text-white hover:scale-105">
+            <Link to="/movies" onClick={() => setMenuOpen(false)} className="text-black dark:text-white hover:scale-105 border-1 border-gray-400 dark:border-gray-600 p-2 rounded">
               Movies
             </Link>
 
-            <Link to="/cart" onClick={() => setMenuOpen(false)} className="text-black dark:text-white hover:scale-105">
+            <Link to="/cart" onClick={() => setMenuOpen(false)} className="text-black dark:text-white hover:scale-105 border-1 border-gray-400 dark:border-gray-600 p-2 rounded">
               Cart 🛒 ({totalQuantity})
             </Link>
 
-            <Link to="/add-movie" onClick={() => setMenuOpen(false)} className="text-black dark:text-white hover:scale-105">
+            <Link to="/add-movie" onClick={() => setMenuOpen(false)} className="text-black dark:text-white hover:scale-105 border-1 border-gray-400 dark:border-gray-600 p-2 rounded">
               Add Movies
             </Link>
 
-            <button onClick={handleLogout} className="text-black dark:text-white hover:scale-105">
+            <button onClick={handleLogout} className="text-black dark:text-white hover:scale-105 border-1 border-gray-400 dark:border-gray-600 p-2 rounded">
               Logout
             </button>
 
