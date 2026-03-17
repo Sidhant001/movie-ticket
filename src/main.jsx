@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./appl/store";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider,Navigate } from "react-router-dom";
 import App from "./App";
 import Login from "./pages/Login";
 import Movies from "./pages/Movies";
@@ -13,25 +13,24 @@ import Checkout from "./pages/Checkout";
 import AddMovie from "./pages/AddMovie";
 
 const router = createBrowserRouter([
-  {
+ {
     path: "/login",
-    element :<Login/>,
+    element: <Login />
   },
-   { path: "/",
+
+  {
+    path: "/",
     element: (
       <ProtectedRoute>
-        <App/>
+        <App />
       </ProtectedRoute>
     ),
     children: [
-      { path: "/movies", element: 
-      <Movies /> },
-      { path: "/cart", element:
-        <Cart />},
-      { path: "/checkout",element:
-        <Checkout />},
-      {path: "/add-movie",element: 
-        <AddMovie />},
+      { index: true, element: <Movies /> }, 
+      { path: "movies", element: <Movies /> },
+      { path: "cart", element: <Cart /> },
+      { path: "checkout", element: <Checkout /> },
+      { path: "add-movie", element: <AddMovie /> },
     ],
   },
 ]);

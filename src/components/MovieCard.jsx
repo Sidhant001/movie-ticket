@@ -10,7 +10,7 @@ function MovieCard({ movie }) {
   const cartItem = cartItems.find((item) => item.id === movie.id);
 
   return (
-    <div className="border border-black bg-white dark:bg-gray-600 rounded-lg p-3">
+    <div className="transition-transform duration-300 hover:scale-105 border border-black bg-white dark:bg-gray-600 rounded-lg p-3">
 
       <img
         src={movie.image || movie.poster}
