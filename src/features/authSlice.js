@@ -1,33 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { loginAPI } from "../apiInt/Api";
 
 export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post(
-        "https://dummyjson.com/auth/login",
-        {
-          username: userData.username,
-          password: userData.password,
-          expiresInMins: 30,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      return response.data;
-    } catch (error) {
+      return await loginAPI(userData);
+    }
+     catch (error) {
       return rejectWithValue(
         error.response?.data || { message: "Login failed" }
       );
     }
   }
 );
-
 const initialState = {
   user: null,
   token: null,

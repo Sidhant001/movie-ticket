@@ -1,15 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { fetchMoviesAPI } from "../apiInt/Api";
 
 export const fetchMovies = createAsyncThunk(
   "movies/fetchMovies",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(
-        "https://api.tvmaze.com/shows"
-      );
-
-      return response.data;
+      return await fetchMoviesAPI();
     } catch (error) {
       return rejectWithValue("Failed to fetch movies");
     }
